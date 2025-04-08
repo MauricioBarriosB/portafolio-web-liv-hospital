@@ -29,9 +29,7 @@ const AppointmentsList = ({ appoMsg, appointments, roles, methodDelete, methodEd
             </div>
             <div className="card-body text-center pb-0">
 
-                {appoMsg && <p className="text-primary" style={{ marginBottom: "0" }}>{appoMsg}</p>}
-
-
+                {appoMsg && <p className="text-primary">{appoMsg}</p>}
 
                 <div className="row doctors">
                     {appointments.map((row) => (

@@ -86,7 +86,7 @@ const Patients = () => {
                     <div className="card-body pb-0">
                         {error && <p style={{ color: "red" }}>{error}</p>}
 
-                        {(patients.length == 0 && !error) && <p>Cargando lista de pacientes...</p>}
+                        {(patients.length == 0 && !error) && <p className="text-primary">Cargando lista de pacientes...</p>}
 
                         {(patients.length > 0  && !error) &&
                             <table className="table table-bordered table-striped">
