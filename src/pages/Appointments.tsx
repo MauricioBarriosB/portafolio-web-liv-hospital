@@ -37,7 +37,7 @@ function Appointments() {
     const flagIDUpdate = useRef<number | null>(null);
 
     const [appointments, setAppointments] = useState<IAppointments[]>([]);
-    const [appoMsg, setAppoMsg] = useState<string | null>('Cargando...');
+    const [appoMsg, setAppoMsg] = useState<string | null>('Cargando citas médicas...');
 
     //** useForm Hook to validate forms data :
 
