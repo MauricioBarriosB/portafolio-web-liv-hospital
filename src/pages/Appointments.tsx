@@ -201,7 +201,7 @@ function Appointments() {
                                 <input
                                     type="submit"
                                     className="btn btn-primary"
-                                    value="Guardar y enviar Reserva &raquo;"
+                                    value="Guardar y enviar reserva &raquo;"
                                 />
                             </div>
                         </form>
