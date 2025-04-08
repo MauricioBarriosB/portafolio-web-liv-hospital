@@ -11687,7 +11687,10 @@ body, html {
   z-index: 900;
 }
 
-
+.table-bordered {
+    border-top-right-radius: 15px !important;
+    border-top-left-radius: 15px  !important;
+}
 
 .marketing .col-lg-4 p {
   margin-right: 0.75rem;

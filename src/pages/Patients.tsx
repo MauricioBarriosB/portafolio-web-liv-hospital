@@ -34,7 +34,6 @@ const Patients = () => {
 
     useEffect(() => {
         fetchPatients();
-        // console.log(userData.jwt);
     }, []);
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,20 +83,45 @@ const Patients = () => {
                             Listado con pacientes activos en plataforma
                         </h5>
                     </div>
-                    <div className="card-body">
+                    <div className="card-body pb-0">
                         {error && <p style={{ color: "red" }}>{error}</p>}
-                        <ul className="list-group">
-                            {patients.map((patient) => (
-                                <li className="list-group-item d-flex justify-content-between_ align-items-center_" key={patient.id}>
-                                    RUT: {patient.rut} |   <strong className="mx-2"> {patient.fname} {patient.lname} </strong> | Edad:  {patient.age} | Especialidad: {patient.specialty_name} | Diagnóstico: {patient.diagnosis}  - por {patient.doctor_name}.
-                                </li>
-                            ))}
-                        </ul>
+
+                        {(patients.length == 0 && !error) && <p>Cargando lista de pacientes...</p>}
+
+                        {(patients.length > 0  && !error) &&
+                            <table className="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">RUT</th>
+                                        <th scope="col">Paciente</th>
+                                        <th scope="col">Edad</th>
+                                        <th scope="col">Diagnóstico</th>
+                                        <th scope="col">Médico diagnóstico</th>
+                                        <th scope="col">Médico especialidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {patients.map((patient) => (
+                                        <tr key={patient.id}>
+                                            <th>{patient.rut}</th>
+                                            <td>{patient.fname} {patient.lname}</td>
+                                            <td>{patient.age}</td>
+                                            <td>{patient.diagnosis}</td>
+                                            <td>{patient.doctor_name}</td>
+                                            <td>{patient.specialty_name}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        }
+
                     </div>
                     <div className="card-footer text-body-secondary">
-                        <p className="fw-bold text-primary m-0">
-                            La información de pacientes ha sido actualizada con fecha {new Date().toLocaleDateString()}
-                        </p>
+                        {(patients.length > 0) &&
+                            <p className="fw-bold text-primary m-0">
+                                La información de pacientes ha sido actualizada con fecha {new Date().toLocaleDateString()}
+                            </p>
+                        }
                     </div>
                 </div>
 
